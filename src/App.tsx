@@ -1,26 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import Frame from './hoc/frame/frame';
+import Main from './components/main/Main';
+import Login from './components/login/Login';
+import {Route, Routes, Navigate} from 'react-router-dom';
+import ProtectedRoute from './components/protected-route/ProtectedRoute';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Frame>
+      <Routes>
+        <Route path={'/'} element={<Login/>}/>
+        <Route path={'/contact'} element={<ProtectedRoute><Main/></ProtectedRoute>}/>
+        <Route path={'*'} element={<Navigate replace to={'/'}/>}/>
+      </Routes>
+    </Frame>
   );
-}
+};
 
 export default App;
+

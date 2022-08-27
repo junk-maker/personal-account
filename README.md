@@ -1,3 +1,9 @@
+password: 123;
+node: 16.15.0;
+backend npm start;
+frontend npm start;
+email: test@gmail.com; 
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
